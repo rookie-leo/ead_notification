@@ -1,4 +1,4 @@
-package com.ead.notification.configs.security;
+package com.ead.notification.adapters.configs.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,8 +1,8 @@
 package com.ead.notification.controllers;
 
-import com.ead.notification.configs.security.AuthenticationCurrentUserService;
-import com.ead.notification.configs.security.UserDetailsImpl;
-import com.ead.notification.dtos.NotificationRecordDto;
+import com.ead.notification.adapters.configs.security.AuthenticationCurrentUserService;
+import com.ead.notification.adapters.configs.security.UserDetailsImpl;
+import com.ead.notification.adapters.dtos.NotificationRecordDto;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.service.NotificationService;
 import jakarta.validation.Valid;

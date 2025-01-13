@@ -1,4 +1,4 @@
-package com.ead.notification.configs;
+package com.ead.notification.adapters.configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;

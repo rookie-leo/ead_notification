@@ -1,4 +1,4 @@
-package com.ead.notification.exceptions;
+package com.ead.notification.adapters.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

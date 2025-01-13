@@ -1,4 +1,4 @@
-package com.ead.notification.configs;
+package com.ead.notification.adapters.configs;
 
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;

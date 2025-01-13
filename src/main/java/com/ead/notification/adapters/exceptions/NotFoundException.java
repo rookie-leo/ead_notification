@@ -1,4 +1,4 @@
-package com.ead.notification.exceptions;
+package com.ead.notification.adapters.exceptions;
 
 public class NotFoundException extends RuntimeException {
 

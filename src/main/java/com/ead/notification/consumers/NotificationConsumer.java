@@ -1,6 +1,6 @@
 package com.ead.notification.consumers;
 
-import com.ead.notification.dtos.NotificationRecordCommandDto;
+import com.ead.notification.adapters.dtos.NotificationRecordCommandDto;
 import com.ead.notification.service.NotificationService;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;

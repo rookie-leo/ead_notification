@@ -1,9 +1,9 @@
 package com.ead.notification.service.Impl;
 
-import com.ead.notification.dtos.NotificationRecordCommandDto;
-import com.ead.notification.dtos.NotificationRecordDto;
+import com.ead.notification.adapters.dtos.NotificationRecordCommandDto;
+import com.ead.notification.adapters.dtos.NotificationRecordDto;
 import com.ead.notification.enums.NotificationStatus;
-import com.ead.notification.exceptions.NotFoundException;
+import com.ead.notification.adapters.exceptions.NotFoundException;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.repositories.NotificationRepository;
 import com.ead.notification.service.NotificationService;
