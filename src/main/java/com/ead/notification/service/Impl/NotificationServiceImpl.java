@@ -2,11 +2,11 @@ package com.ead.notification.service.Impl;
 
 import com.ead.notification.adapters.dtos.NotificationRecordCommandDto;
 import com.ead.notification.adapters.dtos.NotificationRecordDto;
-import com.ead.notification.enums.NotificationStatus;
+import com.ead.notification.core.domain.enums.NotificationStatus;
 import com.ead.notification.adapters.exceptions.NotFoundException;
 import com.ead.notification.models.NotificationModel;
 import com.ead.notification.repositories.NotificationRepository;
-import com.ead.notification.service.NotificationService;
+import com.ead.notification.core.ports.NotificationServicePort;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class NotificationServiceImpl implements NotificationService {
+public class NotificationServiceImpl implements NotificationServicePort {
 
     final NotificationRepository notificationRepository;
 

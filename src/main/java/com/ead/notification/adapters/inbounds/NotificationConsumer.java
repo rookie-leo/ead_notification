@@ -1,21 +1,23 @@
-package com.ead.notification.consumers;
+package com.ead.notification.adapters.inbounds;
 
 import com.ead.notification.adapters.dtos.NotificationRecordCommandDto;
-import com.ead.notification.service.NotificationService;
+import com.ead.notification.core.domain.NotificationDomain;
+import com.ead.notification.core.ports.NotificationServicePort;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.BeanUtils;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
 public class NotificationConsumer {
 
-    final NotificationService notificationService;
+    final NotificationServicePort notificationService;
 
-    public NotificationConsumer(NotificationService notificationService) {
+    public NotificationConsumer(NotificationServicePort notificationService) {
         this.notificationService = notificationService;
     }
 
@@ -25,6 +27,8 @@ public class NotificationConsumer {
             key = "${ead.broker.key.notificationCommandKey}")
     )
     public void listen(@Payload NotificationRecordCommandDto notificationRecordCommandDto) {
-        notificationService.saveNotification(notificationRecordCommandDto);
+        var notificationDomain = new NotificationDomain();
+        BeanUtils.copyProperties(notificationRecordCommandDto, notificationDomain);
+        notificationService.saveNotification(notificationDomain);
     }
 }

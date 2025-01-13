@@ -4,7 +4,7 @@ import com.ead.notification.adapters.configs.security.AuthenticationCurrentUserS
 import com.ead.notification.adapters.configs.security.UserDetailsImpl;
 import com.ead.notification.adapters.dtos.NotificationRecordDto;
 import com.ead.notification.models.NotificationModel;
-import com.ead.notification.service.NotificationService;
+import com.ead.notification.core.ports.NotificationServicePort;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,10 +20,10 @@ import java.util.UUID;
 @RestController
 public class UserNotificationController {
 
-    final NotificationService notificationService;
+    final NotificationServicePort notificationService;
     final AuthenticationCurrentUserService authenticationCurrentUserService;
 
-    public UserNotificationController(NotificationService notificationService, AuthenticationCurrentUserService authenticationCurrentUserService) {
+    public UserNotificationController(NotificationServicePort notificationService, AuthenticationCurrentUserService authenticationCurrentUserService) {
         this.notificationService = notificationService;
         this.authenticationCurrentUserService = authenticationCurrentUserService;
     }

@@ -1,6 +1,6 @@
 package com.ead.notification.adapters.dtos;
 
-import com.ead.notification.enums.NotificationStatus;
+import com.ead.notification.core.domain.enums.NotificationStatus;
 import jakarta.validation.constraints.NotNull;
 
 public record NotificationRecordDto(
