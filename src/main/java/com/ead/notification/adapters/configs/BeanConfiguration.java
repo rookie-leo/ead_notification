@@ -4,6 +4,7 @@ import com.ead.notification.NotificationApplication;
 import com.ead.notification.core.ports.NotificationPersistencePort;
 import com.ead.notification.core.ports.NotificationServicePort;
 import com.ead.notification.core.services.NotificationServicePortImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,11 @@ public class BeanConfiguration {
     @Bean
     NotificationServicePort notificationServicePortImpl(NotificationPersistencePort notificationPersistencePort) {
         return new NotificationServicePortImpl(notificationPersistencePort);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
 }

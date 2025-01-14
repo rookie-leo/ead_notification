@@ -1,4 +1,4 @@
-package com.ead.notification.models;
+package com.ead.notification.adapters.outbounds.entities;
 
 import com.ead.notification.core.domain.enums.NotificationStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,7 +11,7 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "TB_NOTIFICATIONS")
-public class NotificationModel implements Serializable {
+public class NotificationEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
