@@ -5,8 +5,10 @@ spring:
     ansi:
       enabled: Always
   config:
-    import: 'optional:configserver:'
+    import: 'configserver:'
   cloud:
     config:
       discovery:
         serviceId: ead-config-server
+      username: configserver
+      password: 'ead123cs'
