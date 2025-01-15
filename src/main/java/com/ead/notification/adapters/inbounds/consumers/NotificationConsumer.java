@@ -1,4 +1,4 @@
-package com.ead.notification.adapters.inbounds;
+package com.ead.notification.adapters.inbounds.consumers;
 
 import com.ead.notification.adapters.dtos.NotificationRecordCommandDto;
 import com.ead.notification.core.domain.NotificationDomain;

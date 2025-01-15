@@ -16,4 +16,6 @@ public interface NotificationPersistencePort {
     Optional<NotificationDomain> findByNotificationIdAndUserId(UUID notificationId, UUID userId);
 
     NotificationDomain updateNotification(NotificationStatus notificationRecordDto, NotificationDomain notificationModel);
+
+    List<NotificationDomain> findAllByUserIdAndNotificationStatus(UUID userId, NotificationStatus notificationStatus, PageInfo pageInfo);
 }

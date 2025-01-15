@@ -30,7 +30,7 @@ public class NotificationServicePortImpl implements NotificationServicePort {
 
     @Override
     public List<NotificationDomain> findAllNotificatonsByUser(UUID userId, PageInfo pageInfo) {
-        return List.of();
+        return notificationPersistencePort.findAllByUserIdAndNotificationStatus(userId, NotificationStatus.CREATED, pageInfo);
     }
 
     @Override
