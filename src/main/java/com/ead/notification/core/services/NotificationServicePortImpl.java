@@ -35,11 +35,11 @@ public class NotificationServicePortImpl implements NotificationServicePort {
 
     @Override
     public Optional<NotificationDomain> findByNotificationIdAndUserId(UUID notificationId, UUID userId) {
-        return Optional.empty();
+        return notificationPersistencePort.findByNotificationIdAndUserId(notificationId, userId);
     }
 
     @Override
-    public NotificationDomain updateNotification(NotificationStatus notificationRecordDto, NotificationDomain notificationModel) {
-        return null;
+    public NotificationDomain updateNotification(NotificationStatus notificationStatus, NotificationDomain notificationDomain) {
+        return notificationPersistencePort.updateNotification(notificationStatus, notificationDomain);
     }
 }

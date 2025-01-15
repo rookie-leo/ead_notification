@@ -15,5 +15,5 @@ public interface NotificationServicePort {
 
     Optional<NotificationDomain> findByNotificationIdAndUserId(UUID notificationId, UUID userId);
 
-    NotificationDomain updateNotification(NotificationStatus notificationRecordDto, NotificationDomain notificationModel);
+    NotificationDomain updateNotification(NotificationStatus notificationStatus, NotificationDomain notificationDomain);
 }

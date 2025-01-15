@@ -54,26 +54,26 @@ public class UserNotificationController {
         }
     }
 
-//    @PreAuthorize("hasAnyRole('USER')")
-//    @PutMapping("/users/{userId}/notifications/{notificationId}")
-//    public ResponseEntity<Object> updateNotification(
-//            @PathVariable(value = "userId") UUID userId,
-//            @PathVariable(value = "notificationId") UUID notificationId,
-//            @RequestBody @Valid NotificationRecordDto notificationRecordDto
-//    ) {
-//        UserDetailsImpl userDetails = authenticationCurrentUserService.getCurrentUser();
-//
-//        if (userDetails.getUserId().equals(userId) || userDetails.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
-//            return ResponseEntity
-//                    .status(HttpStatus.OK)
-//                    .body(
-//                            notificationService.updateNotification(
-//                                    notificationRecordDto,
-//                                    notificationService.findByNotificationIdAndUserId(notificationId, userId).get()
-//                            )
-//                    );
-//        } else {
-//            throw new AccessDeniedException("Forbidden");
-//        }
-//    }
+    @PreAuthorize("hasAnyRole('USER')")
+    @PutMapping("/users/{userId}/notifications/{notificationId}")
+    public ResponseEntity<Object> updateNotification(
+            @PathVariable(value = "userId") UUID userId,
+            @PathVariable(value = "notificationId") UUID notificationId,
+            @RequestBody @Valid NotificationRecordDto notificationRecordDto
+    ) {
+        UserDetailsImpl userDetails = authenticationCurrentUserService.getCurrentUser();
+
+        if (userDetails.getUserId().equals(userId) || userDetails.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(
+                            notificationService.updateNotification(
+                                    notificationRecordDto.notificationStatus(),
+                                    notificationService.findByNotificationIdAndUserId(notificationId, userId).get()
+                            )
+                    );
+        } else {
+            throw new AccessDeniedException("Forbidden");
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.ead.notification.adapters.outbounds.persistences;
 
+import com.ead.notification.adapters.exceptions.NotFoundException;
 import com.ead.notification.adapters.outbounds.entities.NotificationEntity;
 import com.ead.notification.adapters.outbounds.persistences.repositories.NotificationRepository;
 import com.ead.notification.core.domain.NotificationDomain;
@@ -39,7 +40,13 @@ public class NotificationPersistencePortImpl implements NotificationPersistenceP
 
     @Override
     public Optional<NotificationDomain> findByNotificationIdAndUserId(UUID notificationId, UUID userId) {
-        return Optional.empty();
+        Optional<NotificationEntity> notificationEntityOptional = notificationRepository.findByNotificationIdAndUserId(notificationId, userId);
+
+        if (notificationEntityOptional.isEmpty()) {
+            throw new NotFoundException("Notification for this user not found!");
+        }
+
+        return Optional.of(modelMapper.map(notificationEntityOptional.get(), NotificationDomain.class));
     }
 
     @Override
@@ -53,7 +60,12 @@ public class NotificationPersistencePortImpl implements NotificationPersistenceP
     }
 
     @Override
-    public NotificationDomain updateNotification(NotificationStatus notificationRecordDto, NotificationDomain notificationModel) {
-        return null;
+    public NotificationDomain updateNotification(NotificationStatus notificationStatus, NotificationDomain notificationDomain) {
+        notificationDomain.setNotificationStatus(notificationStatus);
+
+        return modelMapper.map(
+                notificationRepository.save(modelMapper.map(notificationDomain, NotificationEntity.class)),
+                NotificationDomain.class
+        );
     }
 }
